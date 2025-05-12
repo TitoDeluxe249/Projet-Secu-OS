@@ -35,10 +35,39 @@ def demarrer_surveillance():
     print("→ Surveillance démarrée (fonction à implémenter)")
 
 def ajouter_fichier():
-    print("→ Fichier ajouté (fonction à implémenter)")
+    chemin = input("Chemin complet du fichier à surveiller : ")
+
+    try:
+        with open("../config/watchlist.json", "r") as f:
+            data = json.load(f)
+    except FileNotFoundError:
+        data = {"watched_files": []}
+
+    if chemin in data["watched_files"]:
+        print("⚠️  Ce fichier est déjà surveillé.")
+    else:
+        data["watched_files"].append(chemin)
+        with open("../config/watchlist.json", "w") as f:
+            json.dump(data, f, indent=4)
+        print(f"✅ Fichier ajouté à la liste : {chemin}")
 
 def supprimer_fichier():
-    print("→ Fichier supprimé (fonction à implémenter)")
+    chemin = input("Chemin complet du fichier à supprimer de la surveillance : ")
+
+    try:
+        with open("../config/watchlist.json", "r") as f:
+            data = json.load(f)
+    except FileNotFoundError:
+        print("❌ Aucun fichier de surveillance trouvé.")
+        return
+
+    if chemin in data["watched_files"]:
+        data["watched_files"].remove(chemin)
+        with open("../config/watchlist.json", "w") as f:
+            json.dump(data, f, indent=4)
+        print(f"🗑️ Fichier supprimé de la liste : {chemin}")
+    else:
+        print("❌ Ce fichier n’est pas dans la liste.")
 
 def gestion_droits():
     print("→ Gestion des droits (fonction à implémenter)")
@@ -76,37 +105,3 @@ if __name__ == "__main__":
         menu()
     else:
         print("Accès refusé.")
-def ajouter_fichier():
-    chemin = input("Chemin complet du fichier à surveiller : ")
-
-    try:
-        with open("../config/watchlist.json", "r") as f:
-            data = json.load(f)
-    except FileNotFoundError:
-        data = {"watched_files": []}
-
-    if chemin in data["watched_files"]:
-        print("⚠️  Ce fichier est déjà surveillé.")
-    else:
-        data["watched_files"].append(chemin)
-        with open("../config/watchlist.json", "w") as f:
-            json.dump(data, f, indent=4)
-        print(f"✅ Fichier ajouté à la liste : {chemin}")
-def supprimer_fichier():
-    chemin = input("Chemin complet du fichier à supprimer de la surveillance : ")
-
-    try:
-        with open("../config/watchlist.json", "r") as f:
-            data = json.load(f)
-    except FileNotFoundError:
-        print("❌ Aucun fichier de surveillance trouvé.")
-        return
-
-    if chemin in data["watched_files"]:
-        data["watched_files"].remove(chemin)
-        with open("../config/watchlist.json", "w") as f:
-            json.dump(data, f, indent=4)
-        print(f"🗑️ Fichier supprimé de la liste : {chemin}")
-    else:
-        print("❌ Ce fichier n’est pas dans la liste.")
-
