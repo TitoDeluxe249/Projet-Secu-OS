@@ -2,6 +2,7 @@ import hashlib
 import getpass
 import os
 import json
+from access_control import afficher_droits, modifier_droits
 
 def authentification():
     try:
