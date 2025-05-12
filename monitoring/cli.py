@@ -71,7 +71,16 @@ def supprimer_fichier():
         print("❌ Ce fichier n’est pas dans la liste.")
 
 def gestion_droits():
-    print("→ Gestion des droits (fonction à implémenter)")
+    fichier = input("Chemin du fichier à gérer : ")
+
+    droits_actuels = afficher_droits(fichier)
+    if droits_actuels:
+        choix = input("Souhaitez-vous modifier les droits ? (o/n) : ").lower()
+        if choix == 'o':
+            print("Entrez les nouveaux droits en octal (ex: 644, 755, 600)")
+            nouveaux = input("Nouveaux droits : ")
+            modifier_droits(fichier, nouveaux)
+
 
 def verifier_integrite():
     print("→ Vérification d'intégrité (fonction à implémenter)")
