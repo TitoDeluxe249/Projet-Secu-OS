@@ -1,6 +1,7 @@
+python-dotenv
+pytest
+
 watchdog
 click
 rich
-
-python-dotenv
-pytest
+flask
