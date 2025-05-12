@@ -1,0 +1,6 @@
+watchdog
+click
+rich
+
+python-dotenv
+pytest
