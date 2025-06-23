@@ -1,8 +1,0 @@
-python-dotenv
-pytest
-chardet
-watchdog
-click
-rich
-flask
-bcrypt

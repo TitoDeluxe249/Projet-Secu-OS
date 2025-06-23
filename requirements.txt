@@ -5,3 +5,4 @@ watchdog
 click
 rich
 flask
+bcrypt

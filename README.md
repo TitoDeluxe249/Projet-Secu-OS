@@ -40,3 +40,15 @@ Le projet propose :
 git clone https://github.com/ton-pseudo/projet-secu-os.git
 cd projet-secu-os
 pip install -r requirements.txt
+```
+### Créer un environnement virtuel :
+
+```bash
+python -m venv venv
+```
+
+### L’activer :
+
+```bash
+.\venv\Scripts\activate
+```
