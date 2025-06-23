@@ -1,6 +1,6 @@
 {
-  "watched_files": [
-    "/chemin/vers/fichier1.txt",
-    "/chemin/vers/fichier2.conf"
-  ]
+    "watched_files": [
+        "config/test_files",
+        "C:\\Users\\sarah\\secuos\\Projet-Secu-OS\\config\\test_files"
+    ]
 }
