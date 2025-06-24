@@ -37,7 +37,7 @@ Le projet propose :
 ### Installation rapide
 
 ```bash
-git clone https://github.com/ton-pseudo/projet-secu-os.git
+git clone https://github.com/TitoDeluxe249/Projet-Secu-OS
 cd projet-secu-os
 pip install -r requirements.txt
 ```
